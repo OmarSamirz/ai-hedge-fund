@@ -139,7 +139,7 @@ if __name__ == "__main__":
         default=100000.0,
         help="Initial cash position. Defaults to 100000.0)"
     )
-    parser.add_argument("--tickers", type=str, required=True, help="Comma-separated list of stock ticker symbols")
+    parser.add_argument("--tickers", type=str, default='APPL', help="Comma-separated list of stock ticker symbols")
     parser.add_argument(
         "--start-date",
         type=str,
