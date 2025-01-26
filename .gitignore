@@ -1,5 +1,5 @@
 # Python
-__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 *.so
@@ -22,7 +22,7 @@ wheels/
 *.egg
 
 # Virtual Environment
-venv/
+.venv/
 ENV/
 
 # Environment Variables

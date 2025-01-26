@@ -1,7 +1,7 @@
 import json
 from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_openai.chat_models import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 from graph.state import AgentState, show_agent_reasoning
 from pydantic import BaseModel, Field
@@ -156,9 +156,9 @@ def portfolio_management_agent(state: AgentState):
 
 def make_decision(prompt, tickers):
     """Attempts to get a decision from the LLM with retry logic"""
-    llm = ChatOpenAI(model="gpt-4o").with_structured_output(
-        PortfolioManagerOutput,
-        method="function_calling",
+    llm = ChatGoogleGenerativeAI(model='gemini-1.5-flash').with_structured_output(
+        schema=PortfolioManagerOutput,
+        # method="function_calling",
     )
     max_retries = 3
     for attempt in range(max_retries):
